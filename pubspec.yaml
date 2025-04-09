@@ -1,0 +1,29 @@
+name: integral_api
+description: Aplicación de cursos gratuitos con integración de YouTube
+
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  http: ^1.1.0            # Para realizar peticiones HTTP
+  provider: ^6.0.5        # Para gestión de estado
+  cached_network_image: ^3.2.3  # Para cachear imágenes
+  shimmer: ^3.0.0         # Para efectos de carga
+  flutter_svg: ^2.0.7     # Para iconos SVG
+  url_launcher: ^6.1.12   # Para abrir URLs externas (YouTube)
+  shared_preferences: ^2.2.0  # Para guardar el progreso local
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.2
+
+flutter:
+  uses-material-design: true
+  #assets:
+    #- assets/images/
