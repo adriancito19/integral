@@ -36,23 +36,34 @@ class _VideoDetailScreenState extends State<VideoDetailScreen> {
   }
 
   Future<void> _openYouTubeVideo() async {
-    final url = 'https://www.youtube.com/watch?v=${widget.video.id}';
-    
-    if (await canLaunch(url)) {
+    // Primero intenta abrir en la app de YouTube
+    final Uri youtubeAppUri = Uri.parse('youtube://www.youtube.com/watch?v=${widget.video.id}');
+    if (await canLaunchUrl(youtubeAppUri)) {
       setState(() {
         _isWatching = true;
       });
       
       // Simular progreso mientras el usuario está viendo el video
-      // Esto es solo una simulación, en una app real podrías implementar
-      // una sincronización con YouTube Data API para obtener el progreso real
       _simulateProgress();
       
-      await launch(url);
+      await launchUrl(youtubeAppUri);
     } else {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('No se pudo abrir YouTube')),
-      );
+      // Si no se puede abrir la app, intenta abrir en el navegador
+      final Uri youtubeWebUri = Uri.parse('https://www.youtube.com/watch?v=${widget.video.id}');
+      if (await canLaunchUrl(youtubeWebUri)) {
+        setState(() {
+          _isWatching = true;
+        });
+        
+        // Simular progreso mientras el usuario está viendo el video
+        _simulateProgress();
+        
+        await launchUrl(youtubeWebUri, mode: LaunchMode.externalApplication);
+      } else {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('No se pudo abrir YouTube')),
+        );
+      }
     }
   }
 
