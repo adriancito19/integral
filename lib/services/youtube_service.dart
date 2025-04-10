@@ -56,7 +56,7 @@ final String? searchQuery = categoryQueries[category] ?? categoryQueries['progra
         '&key=$apiKey');
 
     final response = await http.get(url);
-
+// Realizado por Adrian Gonzalez 20230608
     if (response.statusCode == 200) {
       final data = json.decode(response.body);
       final List<dynamic> items = data['items'];
