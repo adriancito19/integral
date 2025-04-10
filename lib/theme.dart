@@ -83,7 +83,7 @@ class AppTheme {
       ),
       contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
     ),
-    textTheme: TextTheme(
+    textTheme: const TextTheme(
       displayLarge: TextStyle(color: textPrimaryColor, fontWeight: FontWeight.bold),
       displayMedium: TextStyle(color: textPrimaryColor, fontWeight: FontWeight.bold),
       displaySmall: TextStyle(color: textPrimaryColor, fontWeight: FontWeight.bold),
