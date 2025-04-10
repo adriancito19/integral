@@ -35,37 +35,45 @@ class _VideoDetailScreenState extends State<VideoDetailScreen> {
     await prefs.setDouble('video_progress_${widget.video.id}', progress);
   }
 
-  Future<void> _openYouTubeVideo() async {
-    // Primero intenta abrir en la app de YouTube
-    final Uri youtubeAppUri = Uri.parse('youtube://www.youtube.com/watch?v=${widget.video.id}');
+Future<void> _openYouTubeVideo() async {
+  final String videoId = widget.video.id;
+  
+  // URL para abrir directamente en la app de YouTube
+  final Uri youtubeAppUri = Uri.parse('vnd.youtube:$videoId');
+  
+  // URL para abrir en el navegador si la app no está disponible
+  final Uri youtubeWebUri = Uri.parse('https://www.youtube.com/watch?v=$videoId');
+  
+  try {
+    // Primero intenta abrir la app
     if (await canLaunchUrl(youtubeAppUri)) {
       setState(() {
         _isWatching = true;
       });
       
-      // Simular progreso mientras el usuario está viendo el video
       _simulateProgress();
-      
       await launchUrl(youtubeAppUri);
-    } else {
-      // Si no se puede abrir la app, intenta abrir en el navegador
-      final Uri youtubeWebUri = Uri.parse('https://www.youtube.com/watch?v=${widget.video.id}');
-      if (await canLaunchUrl(youtubeWebUri)) {
-        setState(() {
-          _isWatching = true;
-        });
-        
-        // Simular progreso mientras el usuario está viendo el video
-        _simulateProgress();
-        
-        await launchUrl(youtubeWebUri, mode: LaunchMode.externalApplication);
-      } else {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('No se pudo abrir YouTube')),
-        );
-      }
+    } 
+    // Si no puede abrir la app, intenta con el navegador
+    else if (await canLaunchUrl(youtubeWebUri)) {
+      setState(() {
+        _isWatching = true;
+      });
+      
+      _simulateProgress();
+      await launchUrl(youtubeWebUri);
+    } 
+    else {
+      throw 'No se pudo abrir el video';
+    }
+  } catch (e) {
+    if (mounted) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Error: No se pudo abrir YouTube. $e')),
+      );
     }
   }
+}
 
   void _simulateProgress() {
     // Esta es una simulación simple. En una aplicación real,
