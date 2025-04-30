@@ -4,6 +4,7 @@ import '../services/youtube_service.dart';
 import '../widgets/video_card.dart';
 import '../widgets/search_bar.dart';
 import 'video_detail_screen.dart';  
+import 'about.dart'; // Importa la pantalla de "Acerca de"
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -173,11 +174,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
             ),
-            ListTile(
-              leading: const Icon(Icons.code),
-              title: const Text('Programación'),
-              onTap: () => _filterByCategory('curso programación'),
-            ),
+          
             ListTile(
               leading: const Icon(Icons.language),
               title: const Text('Desarrollo Web'),
@@ -253,6 +250,21 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ],
                   ),
+                );
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.settings),
+              title: const Text('Settings'),
+              onTap: () {
+                Navigator.pop(context); // Cierra el drawer
+                
+                // Navega a la pantalla de inicio
+                Navigator.pushReplacementNamed(context, '/'); // Asumimos que '/' es la ruta de inicio
+                // Alternativa si no usas rutas nombradas:
+                Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => AboutScreen()),
                 );
               },
             ),
