@@ -139,7 +139,7 @@ Future<void> _openYouTubeVideo() async {
                   right: 0,
                   child: LinearProgressIndicator(
                     value: _progress,
-                    backgroundColor: Colors.white.withOpacity(0.5),
+                    backgroundColor: Colors.white.withValues(),
                     valueColor: const AlwaysStoppedAnimation<Color>(Colors.red),
                     minHeight: 8,
                   ),
