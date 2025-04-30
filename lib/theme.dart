@@ -18,14 +18,12 @@ class AppTheme {
   // Tema claro de la aplicación
   static ThemeData lightTheme = ThemeData(
     useMaterial3: true,
-    colorScheme: ColorScheme.light(
+    colorScheme: const ColorScheme.light(
       primary: primaryColor,
       secondary: accentColor,
-      background: backgroundColor,
       surface: cardColor,
       onPrimary: Colors.white,
       onSecondary: Colors.white,
-      onBackground: textPrimaryColor,
       onSurface: textPrimaryColor,
     ),
     scaffoldBackgroundColor: backgroundColor,
@@ -60,7 +58,7 @@ class AppTheme {
     outlinedButtonTheme: OutlinedButtonThemeData(
       style: OutlinedButton.styleFrom(
         foregroundColor: primaryColor,
-        side: BorderSide(color: primaryColor),
+        side: const BorderSide(color: primaryColor),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(8),
         ),
@@ -79,7 +77,7 @@ class AppTheme {
       ),
       focusedBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(8),
-        borderSide: BorderSide(color: primaryColor, width: 2),
+        borderSide: const BorderSide(color: primaryColor, width: 2),
       ),
       contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
     ),
