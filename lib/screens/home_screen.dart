@@ -230,32 +230,32 @@ class _HomeScreenState extends State<HomeScreen> {
             //     );
             //   },
             // ),
-            ListTile(
-              leading: const Icon(Icons.info),
-              title: const Text('Acerca de'),
-              onTap: () {
-                Navigator.pop(context);
-                // Aquí implementarías un diálogo de información
-                showDialog(
-                  context: context,
-                  builder: (context) => AlertDialog(
-                    title: const Text('DigiSkills Academy'),
-                    content: const Text(
-                        'Una aplicación para acceder a cursos gratuitos de YouTube. '
-                        'Desarrollada por Adrian Alberto González Familia.'),
-                    actions: [
-                      TextButton(
-                        onPressed: () => Navigator.pop(context),
-                        child: const Text('Cerrar'),
-                      ),
-                    ],
-                  ),
-                );
-              },
-            ),
+            // ListTile(
+            //   leading: const Icon(Icons.info),
+            //   title: const Text('Acerca de'),
+            //   onTap: () {
+            //     Navigator.pop(context);
+            //     // Aquí implementarías un diálogo de información
+            //     showDialog(
+            //       context: context,
+            //       builder: (context) => AlertDialog(
+            //         title: const Text('DigiSkills Academy'),
+            //         content: const Text(
+            //             'Una aplicación para acceder a cursos gratuitos de YouTube. '
+            //             'Desarrollada por Adrian Alberto González Familia.'),
+            //         actions: [
+            //           TextButton(
+            //             onPressed: () => Navigator.pop(context),
+            //             child: const Text('Cerrar'),
+            //           ),
+            //         ],
+            //       ),
+            //     );
+            //   },
+            // ),
             ListTile(
               leading: const Icon(Icons.settings),
-              title: const Text('Settings'),
+              title: const Text('Acerca de'),
               onTap: () {
                 Navigator.pop(context); // Cierra el drawer
                 
