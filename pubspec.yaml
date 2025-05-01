@@ -17,6 +17,7 @@ dependencies:
   flutter_svg: ^2.0.7     # Para iconos SVG
   url_launcher: ^6.1.12   # Para abrir URLs externas (YouTube)
   shared_preferences: ^2.2.0  # Para guardar el progreso local
+  animate_do: ^4.2.0
 
 dev_dependencies:
   flutter_test:
