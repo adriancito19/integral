@@ -5,7 +5,6 @@ import 'home_screen.dart';
 class AboutScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final screenSize = MediaQuery.of(context).size;
 
     return Scaffold(
       appBar: AppBar(
@@ -23,10 +22,10 @@ class AboutScreen extends StatelessWidget {
                   end: Alignment.bottomRight,
                 ),
               ),
-              child: Column(
+              child:const Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const CircleAvatar(
+                    CircleAvatar(
                     radius: 40,
                     backgroundColor: Colors.white,
                     child: Icon(
@@ -35,8 +34,8 @@ class AboutScreen extends StatelessWidget {
                       color: Colors.blue,
                     ),
                   ),
-                  const SizedBox(height: 10),
-                  const Text(
+                    SizedBox(height: 10),
+                    Text(
                     'Adrian González',
                     style: TextStyle(
                       color: Colors.white,
@@ -304,7 +303,7 @@ class AboutScreen extends StatelessWidget {
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(16),
                         ),
-                        child: Padding(
+                        child: const Padding(
                           padding: const EdgeInsets.all(20),
                           child: Text(
                             'Esta aplicación está diseñada para proporcionar a los usuarios una experiencia intuitiva y fluida, permitiéndoles descubrir y acceder fácilmente a una amplia variedad de cursos gratuitos alojados en YouTube.',
@@ -324,8 +323,8 @@ class AboutScreen extends StatelessWidget {
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(16),
                         ),
-                        child: Padding(
-                          padding: const EdgeInsets.all(20),
+                        child: const Padding(
+                          padding: EdgeInsets.all(20),
                           child: Text(
                             'Construida con Flutter, un framework moderno y potente, DigiSkills Academy busca ser una herramienta valiosa en tu camino de aprendizaje continuo.',
                             style: TextStyle(fontSize: 16),
@@ -505,7 +504,7 @@ class AboutScreen extends StatelessWidget {
                           borderRadius: BorderRadius.circular(30),
                         ),
                         child: const Text(
-                          '¡Gracias por usar DigiSkills Academy!',
+                          '¡Gracias por usar DigiSkills',
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             fontSize: 18,
