@@ -3,7 +3,7 @@ import '../models/video.dart';
 import '../services/youtube_service.dart';
 import '../widgets/video_card.dart';
 import '../widgets/search_bar.dart';
-import 'video_detail_screen.dart';  
+import 'video_detail_screen.dart';
 import 'about.dart'; // Importa la pantalla de "Acerca de"
 
 class HomeScreen extends StatefulWidget {
@@ -19,7 +19,6 @@ class _HomeScreenState extends State<HomeScreen> {
   bool _isLoading = true;
   String _searchQuery = '';
   final TextEditingController _searchController = TextEditingController();
-
 
   @override
   void initState() {
@@ -90,13 +89,13 @@ class _HomeScreenState extends State<HomeScreen> {
   void _filterByCategory(String category) {
     // Cerrar el drawer
     Navigator.pop(context);
-    
+
     // Actualizar la interfaz
     setState(() {
       _searchQuery = category;
       _searchController.text = category;
     });
-    
+
     // Realizar la búsqueda
     _searchVideos(category);
   }
@@ -108,7 +107,7 @@ class _HomeScreenState extends State<HomeScreen> {
         title: const Text('DigiSkills'),
         elevation: 0,
       ),
-      
+
       // Aquí se implementa el drawer (menú lateral)
       drawer: Drawer(
         child: ListView(
@@ -138,14 +137,12 @@ class _HomeScreenState extends State<HomeScreen> {
                       fontSize: 20,
                     ),
                   ),
-                  Flexible( 
-                  child: Text(
-                    'Aprende sin límites',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 14,
-                    )
-                    ),
+                  Flexible(
+                    child: Text('Aprende sin límites',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 14,
+                        )),
                   ),
                 ],
               ),
@@ -174,7 +171,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
             ),
-          
+
             ListTile(
               leading: const Icon(Icons.language),
               title: const Text('Desarrollo Web'),
@@ -230,48 +227,49 @@ class _HomeScreenState extends State<HomeScreen> {
             //     );
             //   },
             // ),
-            // ListTile(
-            //   leading: const Icon(Icons.info),
-            //   title: const Text('Acerca de'),
-            //   onTap: () {
-            //     Navigator.pop(context);
-            //     // Aquí implementarías un diálogo de información
-            //     showDialog(
-            //       context: context,
-            //       builder: (context) => AlertDialog(
-            //         title: const Text('DigiSkills Academy'),
-            //         content: const Text(
-            //             'Una aplicación para acceder a cursos gratuitos de YouTube. '
-            //             'Desarrollada por Adrian Alberto González Familia.'),
-            //         actions: [
-            //           TextButton(
-            //             onPressed: () => Navigator.pop(context),
-            //             child: const Text('Cerrar'),
-            //           ),
-            //         ],
-            //       ),
-            //     );
-            //   },
-            // ),
+            ListTile(
+              leading: const Icon(Icons.info),
+              title: const Text('Acerca de'),
+              onTap: () {
+                Navigator.pop(context);
+                // Aquí implementarías un diálogo de información
+                showDialog(
+                  context: context,
+                  builder: (context) => AlertDialog(
+                    title: const Text('DigiSkills Academy'),
+                    content: const Text(
+                        'Una aplicación para acceder a cursos gratuitos de YouTube. '
+                        'Aplicacion desarrollada por Adrian Gonzalez Familia'),
+                    actions: [
+                      TextButton(
+                        onPressed: () => Navigator.pop(context),
+                        child: const Text('Cerrar'),
+                      ),
+                    ],
+                  ),
+                );
+              },
+            ),
             ListTile(
               leading: const Icon(Icons.settings),
               title: const Text('Acerca de'),
               onTap: () {
                 Navigator.pop(context); // Cierra el drawer
-                
+
                 // Navega a la pantalla de inicio
-                Navigator.pushReplacementNamed(context, '/'); // Asumimos que '/' es la ruta de inicio
+                Navigator.pushReplacementNamed(
+                    context, '/'); // Asumimos que '/' es la ruta de inicio
                 // Alternativa si no usas rutas nombradas:
                 Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(builder: (context) => AboutScreen()),
+                  context,
+                  MaterialPageRoute(builder: (context) => AboutScreen()),
                 );
               },
             ),
           ],
         ),
       ),
-      
+
       body: Column(
         children: [
           // Barra de búsqueda personalizada
@@ -283,7 +281,7 @@ class _HomeScreenState extends State<HomeScreen> {
               hintText: 'Buscar cursos y tutoriales...',
             ),
           ),
-          
+
           // Título de sección
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16.0),
@@ -311,7 +309,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ],
             ),
           ),
-          
+
           // Lista de videos
           Expanded(
             child: _isLoading
@@ -329,7 +327,8 @@ class _HomeScreenState extends State<HomeScreen> {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => VideoDetailScreen(video: video),
+                                  builder: (context) =>
+                                      VideoDetailScreen(video: video),
                                 ),
                               );
                             },
