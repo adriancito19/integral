@@ -504,7 +504,7 @@ class AboutScreen extends StatelessWidget {
                           borderRadius: BorderRadius.circular(30),
                         ),
                         child: const Text(
-                          '¡Gracias por usar DigiSkills Academy!',
+                          '¡Gracias por usar DigiSkills',
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             fontSize: 18,
