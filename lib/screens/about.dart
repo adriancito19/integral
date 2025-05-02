@@ -3,6 +3,8 @@ import 'package:animate_do/animate_do.dart';
 import 'home_screen.dart';
 
 class AboutScreen extends StatelessWidget {
+  const AboutScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
 
@@ -45,7 +47,7 @@ class AboutScreen extends StatelessWidget {
                   ),
                   Flexible(
                     child: Text('Desarrollador de esta App',
-                        style: const TextStyle(
+                        style: TextStyle(
                           color: Colors.white70,
                           fontSize: 14,
                         )),
@@ -304,7 +306,7 @@ class AboutScreen extends StatelessWidget {
                           borderRadius: BorderRadius.circular(16),
                         ),
                         child: const Padding(
-                          padding: const EdgeInsets.all(20),
+                          padding: EdgeInsets.all(20),
                           child: Text(
                             'Esta aplicación está diseñada para proporcionar a los usuarios una experiencia intuitiva y fluida, permitiéndoles descubrir y acceder fácilmente a una amplia variedad de cursos gratuitos alojados en YouTube.',
                             style: TextStyle(fontSize: 16),
